@@ -12,6 +12,8 @@ while true; do
 	find request/out/ -type p | while read request; do
 		echo 1 > $request
 		echo "Approved $request"
+                frienddir=$(echo $request | sed 's|request/out/||' | tr -d ' ')
+                echo $frienddir
 	done
 	sleep 1
 done
