@@ -1,0 +1,17 @@
+#!/bin/sh
+# raTox Automatic Friend Request Approval
+#
+
+LIBRARY_LOCATION=`dirname $0`
+. $LIBRARY_LOCATION/functions
+export PATH=$LIBRARY_LOCATION:$PATH
+
+check_if_dir
+
+while true; do
+	find request/out/ -type p | while read request; do
+		echo 1 > $request
+		echo "Approved $request"
+	done
+	sleep 1
+done
