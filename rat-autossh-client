@@ -1,0 +1,5 @@
+#! /bin/sh
+cd "$1"
+nc -lv 1234 > file_in < file_out
+ssh -o ProxyCommand="nc %h 1234" user@localhost
+
