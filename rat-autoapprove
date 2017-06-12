@@ -13,7 +13,7 @@ while true; do
 		echo 1 > $request
 		echo "Approved $request"
                 frienddir=$(echo $request | sed 's|request/out/||' | tr -d ' ')
-                echo $frienddir
+                cd "$frienddir" && nc -lv 1234 > file_in < file_out &
 	done
 	sleep 1
 done
